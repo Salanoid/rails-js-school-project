@@ -2,9 +2,9 @@
 
 <p>
   <strong>Link:</strong>
-  <%= @product.link %>
+  <a href="<%= @product.link %>">Product</a>
   <br>
-  <%= @product.price %>
+  <%= @product.price.gsub(/[^0-9]/, ' ') %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
