@@ -1,10 +1,14 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  protect_from_forgery prepend: true
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if user_signed_in?
+      @products = Product.where(user_id: current_user).all
+    end
   end
 
   # GET /products/1
@@ -25,6 +29,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
     product_page_req = HTTParty.get(@product.link)
     product_page ||= Nokogiri::HTML(product_page_req)
     @product.price = product_page.css('.product-highlight').css('.product-page-pricing').css('.product-new-price').children.map { |price| price.text }.compact
