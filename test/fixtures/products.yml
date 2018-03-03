@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  link: MyString
+  link: https://www.emag.ro/televizor-led-smart-samsung-125-cm-50mu6102-4k-ultra-hd-ue50mu6102kxxh/pd/DK3V67BBM/
 
 two:
   link: MyString
