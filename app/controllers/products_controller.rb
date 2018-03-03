@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     product_page_req = HTTParty.get(@product.link)
     product_page ||= Nokogiri::HTML(product_page_req)
     @product.price = product_page.css('.product-highlight').css('.product-page-pricing').css('.product-new-price').children.map { |price| price.text }.compact
+    @product.image = product_page.css('.thumbnail').css('.product-gallery-image').attr('href')
 
     respond_to do |format|
       if @product.save
