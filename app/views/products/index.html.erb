@@ -1,27 +1,36 @@
-<p id="notice"><%= notice %></p>
+<br />
+<% if notice -%>
+  <div class="alert alert-primary" role="alert">
+  <%= notice %>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<%end-%>
 
-<h1>Products</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h1 class="display-4">Products</h1>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.link %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'New Product', new_product_path, :class => "btn btn-outline-primary" %>
+<br />
+<br />
 
-<br>
+  <% @products.each do |product| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= product.image %>">
+        <div class="card-body">
+          <p class="card-text"><%= product.price.to_s.gsub(/[^0-9]/, ' ')  %> Lei</p>
+          <a href="<%= product.link %>" class="btn btn-primary" target="blank">Go to eMAG product</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">
+            <%= link_to 'Show', product, :class => "badge badge-success" %>
+            <%= link_to 'Edit', edit_product_path(product), :class => "badge badge-warning" %>
+            <%= link_to 'Destroy', product, method: :delete, :class => "badge badge-danger", data: { confirm: 'Are you sure?' } %>
+          </small>
+        </div>
+      </div>
+      <br />
+  <% end %>
 
-<%= link_to 'New Product', new_product_path %>
+<br />
