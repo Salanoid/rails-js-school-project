@@ -4,9 +4,9 @@
   <strong>Link:</strong>
   <a href="<%= @product.link %>">Product</a>
   <br>
-  <%= @product.price.to_s.gsub(/[^0-9]/, ' ')  %>
+  <%= @product.price.to_s.gsub(/[^0-9]/, ' ')  %> Lei
   <br>
-  <img src="<%= @product.image %>">
+  <img src="<%= @product.image %>" style="width: 200px">
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

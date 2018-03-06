@@ -12,11 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :link %>
-    <%= form.text_field :link, id: :product_link %>
+    <%= form.text_field :link, id: :product_link, placeholder: "Enter eMAG link" %>
+    <br />
+    <br />
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

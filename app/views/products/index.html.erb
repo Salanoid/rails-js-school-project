@@ -14,7 +14,7 @@
 <%= link_to 'New Product', new_product_path, :class => "btn btn-outline-primary" %>
 <br />
 <br />
-
+<div class="card-columns">
   <% @products.each do |product| %>
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="<%= product.image %>">
@@ -32,5 +32,5 @@
       </div>
       <br />
   <% end %>
-
+</div>
 <br />
