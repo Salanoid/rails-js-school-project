@@ -1,0 +1,26 @@
+<head>
+  <title>GaussianShop</title>
+</head>
+
+<body>
+  <center>
+    {{> loginButtons }}
+    {{# if currentUser }}
+      {{> mainPageUser }}
+    {{ else }}
+      {{> mainPageGuest }} 
+    {{/if}}
+  </center>
+</body>
+
+<template name="mainPageUser">
+  <br>
+  <a href="home.html">SHOP</a>
+</template>
+
+<template name="mainPageGuest">
+  <br>
+  <h1>
+    Create a new account!
+  </h1>
+</template>  

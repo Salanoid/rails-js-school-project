@@ -1,0 +1,92 @@
+<html>
+<title>Gaussian Shop</title>
+  <head>
+    <script type="text/javascript">
+
+      document.write("<br>");
+      document.close();
+
+      function assign_url1()
+      {
+        window.open("", "", "width=500, height=400").location.assign("https://www.emag.ro/telefon-mobil-samsung-galaxy-a8-2018-dual-sim-32gb-4g-black-sm-a530fzkdrom/pd/DTN2CHBBM/?X-Search-Id=e70016e8f256725e7b94&X-Product-Id=4178756&X-Search-Page=1&X-Search-Position=1&X-Search-Action=view");
+        pret_nou = parseInt((Math.random()+0.5)*1500);
+        document.getElementById("price").innerHTML = "<i>Pret produs 1: </i>" + pret_nou + ' RON<br><input type="button" onclick="add(1, pret_nou)" value="Add to cart" style="background-color: grey;"><br>';
+      }
+
+      function assign_url2()
+      {
+        window.open("", "", "width=500, height=400").location.assign("https://www.emag.ro/hotul-de-carti-markus-zusak-9786066096133/pd/DS2KRBBBM/?X-Search-Id=d88192f5d6ce18351b4d&X-Product-Id=476018&X-Search-Page=1&X-Search-Position=20&X-Search-Action=view");
+        pret_nou = parseInt((Math.random()+0.5)*30);
+        document.getElementById("price").innerHTML = "<i>Pret produs 2: </i>" + pret_nou + ' RON<br><input type="button" onclick="add(2, pret_nou)" value="Add to cart" style="background-color: grey;"><br>';
+      }
+
+      function assign_url3()
+      {
+        window.open("", "", "width=500, height=400").location.assign("https://www.emag.ro/multifunctional-laser-monocrom-brother-dcp-l2512d-a4-duplex-dcpl2512dyj1/pd/D3L149BBM/?ref=smart-history_1_1");
+        pret_nou = parseInt((Math.random()+0.5)*450);
+        document.getElementById("price").innerHTML = "<i>Pret produs 3: </i>" + pret_nou + ' RON<br><input type="button" onclick="add(3, pret_nou)" value="Add to cart" style="background-color: grey;"><br>';
+      }
+
+      total = 0;
+
+      function add(produs, pret_nou)
+      {
+        if (produs == 1)
+        {
+          document.getElementById("cos").innerHTML += "produs 1: " + pret_nou + " RON<br>";
+          total += pret_nou;
+        }
+        if (produs == 2)
+        {
+          document.getElementById("cos").innerHTML += "produs 2: " + pret_nou + " RON<br>";
+          total += pret_nou;
+        }
+        if (produs == 3)
+        {
+          document.getElementById("cos").innerHTML += "produs 3: " + pret_nou + " RON<br>";
+          total += pret_nou;
+        }
+        document.getElementById("total").innerHTML = total + " RON";
+
+        document.getElementById("comanda").innerHTML = '<input type="button" onclick="order(total)" value="Order now" style="background-color: red;"><br><br>';
+      }
+
+      function order(total)
+      {
+        alert("Multumim de comanda in valoare de "+total+" RON. In continuare te rugam sa completezi detaliile de livrare!");
+        window.open("", "", "width=600, height=200").location.assign("cart.html");
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <center>
+      <img src="https://s12emagst.akamaized.net/layout/ro/images/logo//38/57629.png">
+
+      <br><br>
+      <h3>Apasa pe un produs pentru a vedea pretul la eMAG si pretul oferit de noi</h3>
+      <br>
+
+      <form>
+        <input type="button" value="Produs 1" onclick="assign_url1()" />
+        <input type="button" value="Produs 2" onclick="assign_url2()" />
+        <input type="button" value="Produs 3" onclick="assign_url3()" />
+      </form>
+
+      <h1 style="color: red;">
+        <div id="price"></div>
+      </h1>
+
+      <div style="background-color: rgba(128, 128, 128, 0.5); width: 50%;">
+        <img src="cart.png" width="50px" />
+        <h4 style="color: blue;">
+          TOTAL: <div id="total">0 RON</div>
+        </h4>
+        <div id="comanda"></div>
+        <div id="cos"></div>
+      </div>
+
+    </center>
+  </body>
+</html>

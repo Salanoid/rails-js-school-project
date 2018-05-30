@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script type="text/javascript">
+      function myFunction()
+      {
+        Name = document.solid.one.value;
+        Surname = document.solid.two.value;
+        Phone_number = document.solid.number.value;
+        Delivery_Adress = document.getElementById("myText").value;
+        if (Name == "" || Surname == "" || Phone_number == "" || Delivery_Adress == "")
+          alert("Eroare! Verifica datele si incearca din nou!");
+        else
+        {
+          alert("Felicitari "+Name+" "+Surname+"! Comanda ta va fi livrata in urmatoarele zile la adresa "+Delivery_Adress+". Te vom contacta la numarul de telefon "+Phone_number+".");
+          window.close();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+    	<form name="solid">
+        Name: <input type="text" name="one" required><br>
+        Surname: <input type="text" name="two" required><br>
+        Phone number: <input type="text" name="number" required placeholder="07XX.XXX.XXX"><br>
+        Delivery Adress: <input type="text" id="myText" required><br>
+        <input type="submit" onClick="myFunction()">
+      </form>
+    </center>
+  </body>
+</html>
